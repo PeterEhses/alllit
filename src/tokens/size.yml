@@ -4,10 +4,14 @@
 #
 
 props:
-  height_footer:
-    value: "64px"
-  tappable_square:
-    value: "44px"
+  chip-height:
+    value: "29px"
+  height_header:
+    value: "39px"
+  card_min_width:
+    value: "20px"
+  card_min_height:
+    value: "20px"
 global:
   type: number
   category: size

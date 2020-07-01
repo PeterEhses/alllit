@@ -4,18 +4,20 @@
 #
 
 props:
-  font_heading:
-    value: "'Fira Sans', Helvetica, Arial, sans-serif"
-  font_text:
-    value: "'Fira Sans', Helvetica, Arial, sans-serif"
+  font_default:
+    value: "'museo', serif"
+  font_code:
+    value: "'Fira Code', monospace"
+
   weight_bold:
     value: "700"
-  weight_semi_bold:
-    value: "600"
   weight_normal:
-    value: "400"
-  weight_light:
     value: "300"
+  style_italic:
+    value: "italic"
+  style_bold:
+    value: "bold"
+
 global:
   type: ...
   category: font

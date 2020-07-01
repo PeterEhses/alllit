@@ -1,6 +1,5 @@
 import CodeMirror from "codemirror"
 import CodeTabs from "../utils/tabs.js"
-
 function format(node, level) {
   const indentBefore = new Array(level++ + 1).join("  ")
   const indentAfter = new Array(level - 1).join("  ")
@@ -19,13 +18,20 @@ function format(node, level) {
   }
 
   return node
-}
+} //
+
+import AddDynamicCss from "@/helpers/AddDynamicCss.vue"
 
 export default previewComponent => {
   // https://vuejs.org/v2/guide/render-function.html
   return {
+    components: {
+      AddDynamicCss,
+    },
     render(createElement) {
-      return createElement(previewComponent)
+      // nest actual element to preview into dynamic css helper to get dynamic css. fuck react
+
+      return createElement(AddDynamicCss, [createElement(previewComponent)])
     },
     mounted() {
       CodeTabs.clean()

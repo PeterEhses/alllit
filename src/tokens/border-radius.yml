@@ -4,10 +4,18 @@
 #
 
 props:
-  radius_default:
+  radius_xs:
     value: "3px"
+  radius_s:
+    value: "5px"
+  radius_m:
+    value: "11px"
+  radius_l:
+    value: "29px"
   radius_circle:
     value: "50%"
+  radius_force_circle:
+    value: "1234567px"
 global:
   type: number
   category: border-radius
