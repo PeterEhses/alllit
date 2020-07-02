@@ -2,19 +2,19 @@
   <div class="component-status">
     <ul class="status-list">
       <li>
-        <Icon name="ready" fill="#7cb518" size="small"/>
+        <Icon name="ready" fill="#ED5C79" size="small" />
         <p>Ready</p>
       </li>
       <li>
-        <Icon name="review" :fill="tokens.color_ucla_gold.value" size="small"/>
+        <Icon name="review" fill="#F2E7A9" size="small" />
         <p>Under review</p>
       </li>
       <li>
-        <Icon name="deprecated" :fill="tokens.color_vermilion.value" size="small"/>
+        <Icon name="deprecated" fill="#FF0000" size="small" />
         <p>Deprecated</p>
       </li>
       <li>
-        <Icon name="prototype" :fill="tokens.color_bleu_de_france.value" size="small"/>
+        <Icon name="prototype" fill="#090709" size="small" />
         <p>Prototype</p>
       </li>
       <li>
@@ -36,29 +36,29 @@
       <tbody>
         <tr v-for="(component, index) in components" :key="index" class="component">
           <td v-if="component.name">
-            <code class="name">{{component.name}}</code>
+            <code class="name">{{ component.name }}</code>
           </td>
           <td v-else>N/A</td>
-          <td v-if="component.release">{{component.release}}</td>
+          <td v-if="component.release">{{ component.release }}</td>
           <td v-else>N/A</td>
           <td v-if="component.status">
-            <Icon v-if="component.status === 'ready'" name="ready" fill="#7cb518" size="small"/>
+            <Icon v-if="component.status === 'ready'" name="ready" fill="#ED5C79" size="small" />
             <Icon
               v-if="component.status === 'under-review' || component.status === 'review'"
               name="review"
-              :fill="tokens.color_ucla_gold.value"
+              fill="#F2E7A9"
               size="small"
             />
             <Icon
               v-if="component.status === 'prototype'"
               name="prototype"
-              :fill="tokens.color_bleu_de_france.value"
+              fill="#090709"
               size="small"
             />
             <Icon
               v-if="component.status === 'deprecated'"
               name="deprecated"
-              :fill="tokens.color_vermilion.value"
+              fill="#FF0000"
               size="small"
             />
           </td>
@@ -74,7 +74,6 @@
 // import designTokens from "@/assets/tokens/tokens.raw.json"
 import designTokens from "../../docs.tokens.json"
 import orderBy from "lodash/orderBy"
-
 export default {
   name: "Components",
   props: {
@@ -108,7 +107,6 @@ export default {
       contexts.forEach(context => {
         context.keys().forEach(key => components.push(context(key).default))
       })
-
       return components
     },
     orderData: function(data) {
@@ -133,7 +131,7 @@ export default {
 .component-status {
   @include reset;
   font-family: $font-heading;
-  font-weight: $weight-normal;
+  font-weight: $weight-bold;
   line-height: $line-height-xs;
   color: $color-rich-black;
   margin-bottom: $space-s;
@@ -148,11 +146,11 @@ export default {
   }
   thead th {
     padding: $space-s;
-    background: $color-cloud;
+    background: lighten($primary, 25);
     font-size: $size-s;
     font-weight: $weight-bold;
-    color: $color-oxford-blue;
-    text-transform: uppercase;
+    color: $offblack;
+    text-transform: none; // uppercase;
     letter-spacing: 1px;
     font-weight: $weight-semi-bold;
     -webkit-font-smoothing: antialiased;
@@ -172,7 +170,7 @@ export default {
     }
   }
   tr {
-    border-bottom: 1px solid #dfe3e6;
+    border-bottom: 1px solid $gray2;
     &:last-child {
       border: 0;
     }

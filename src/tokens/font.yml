@@ -5,7 +5,7 @@
 
 props:
   font_default:
-    value: "'museo', serif"
+    value: "'museo-sans-rounded', sans-serif"
   font_code:
     value: "'Fira Code', monospace"
 

@@ -1,6 +1,7 @@
 <template>
   <div id="outer">
-    <div id="inner"><slot></slot></div>
+    <div id="inner"></div>
+    <div id="content"><slot></slot></div>
   </div>
 </template>
 
@@ -18,27 +19,40 @@ export default {
 
 <style lang="scss" scoped>
 #outer {
+  position: relative;
   margin: $space-s;
-  padding: $space-s $space-l $space-s $space-s;
-  height: $chip-height;
+  //padding: $space-s $space-l $space-s $space-s;
+  height: auto;
   background-color: $primary;
   background: linear-gradient(90deg, $gray2 66%, var(--primary-color) 100%);
-  border-radius: $radius-force-circle 0 0 $radius-force-circle;
+  border-radius: $chip-height/2 0 0 $chip-height/2;
 }
 #inner {
+  position: absolute;
   box-sizing: border-box;
-  height: 100%;
   background-color: $offwhite;
-  padding: $space-l 50%;
+  z-index: 0;
+  border-radius: $chip-height/2-$space-s;
+  top: $space-s;
+  left: $space-s;
+  bottom: $space-s;
+  right: $space-l;
+}
+#content {
+  width: 100%;
+  min-height: $chip-height;
+  z-index: 2;
+  position: relative;
 
-  border-radius: $radius-force-circle;
+  margin: 0;
+  padding: 0;
 }
 </style>
 
 <docs>
   ```jsx
   <div>
-    <DeepChipContainer/>
+    <DeepChipContainer>hi</DeepChipContainer>
   </div>
   ```
 </docs>

@@ -8,6 +8,10 @@ props:
     value: "0 0 12px rgba(9, 7, 9, .27)"
   shadow_dark:
     value: "0 0 12px rgba(255, 255, 255, .4)"
+  small_shadow_light:
+    value: "0 3px 6px rgba(9, 7, 9, .27)"
+  small_shadow_dark:
+    value: "0 3px 6px rgba(255, 255, 255, .4)"
 global:
   type: ...
   category: box-shadow
