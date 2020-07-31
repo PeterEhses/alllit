@@ -17,6 +17,7 @@ export default {
   computed: {
     cssVars() {
       return {
+        "--primary-hue": this.primary_color,
         "--primary-color": "hsla(" + this.primary_color + ", 80%, 65%, 1)",
         "--secondary-color": "hsla(" + this.secondary_color + ", 66%, 79%, 1)",
       }

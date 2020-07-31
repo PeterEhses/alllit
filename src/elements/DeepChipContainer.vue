@@ -1,5 +1,5 @@
 <template>
-  <div id="outer">
+  <div id="outer" :style="{ background: color }">
     <div id="inner"></div>
     <div id="content"><slot></slot></div>
   </div>
@@ -9,11 +9,31 @@
 /**
  * container for all sorts of chips. todo: un-responsive corner radii, open / close functionality, etc. etc.
  */
+import designTokens from "@/assets/tokens/tokens.raw.json"
+
 export default {
   name: "DeepChipContainer",
   status: "prototype",
   release: "0.0.1",
-  props: {},
+  props: {
+    /**
+     * color for righthand accent
+     */
+    accentcolor: {
+      type: String,
+      default: null,
+      required: false,
+    },
+  },
+  computed: {
+    color: function() {
+      let grad = "var(--primary-color)"
+      if (this.accentcolor && this.accentcolor.length > 0) {
+        grad = this.accentcolor
+      }
+      return "linear-gradient(90deg, " + designTokens.props.gray2.value + " 66%, " + grad + " 100%)"
+    },
+  },
 }
 </script>
 
@@ -50,9 +70,23 @@ export default {
 </style>
 
 <docs>
-  ```jsx
+### deep chip works with single lines
+  ```js
   <div>
-    <DeepChipContainer>hi</DeepChipContainer>
+    <DeepChipContainer accentcolor="#298cd4">hi</DeepChipContainer>
   </div>
   ```
+  ---
+### but expands to its dynamic open state if content calls for it
+```js
+<div>
+  <DeepChipContainer>1<br/>2<br/>3<br/>4</DeepChipContainer>
+</div>
+```
+### the deep chip is only a styled container with no padding so it needs to be filled with dynaic contents, clickable areas, etc.
+```js
+<div>
+  <DeepChipContainer><div :style="{background: 'var(--secondary-color)', height: '1rem'}">hi again</div></DeepChipContainer>
+</div>
+```
 </docs>

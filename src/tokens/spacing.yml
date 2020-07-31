@@ -4,6 +4,10 @@
 #
 
 props:
+  icon_padding:
+    value: "6.5px"
+  icon_size:
+    value: "17px"
   safespace:
     value: "57px"
   space_header:
