@@ -21,7 +21,7 @@ export default {
       default: 0,
     },
     /**
-     * center/active value as hsl hue in deg
+     * initial center/active value as hsl hue in deg. component will emit new value once changed by user
      */
     value: {
       type: Number,
@@ -44,6 +44,7 @@ export default {
   computed: {
     primaryColor: function() {
       if (this.c_value) {
+        this.$emit("colorchange", this.c_value)
         return this.c_value
       } else {
         if (this.el) {
@@ -82,12 +83,13 @@ export default {
         if (mouseupEvent.movementX != 0 || mouseupEvent.movementY != 0 || this._hasdragged) {
           // mouse has moved
           this._hasdragged = true
-          console.log(mouseupEvent.movementY)
-          this.c_value += mouseupEvent.movementY * (360 / this.$el.clientHeight)
+          let newval = this.c_value + mouseupEvent.movementY * (360 / this.$el.clientHeight)
+          newval = ((newval % 360) + 360) % 360
+          this.c_value = newval
         } else {
           let deriv = mouseupEvent.offsetY - this.$el.clientHeight / 2
           let deg = deriv * (360 / this.$el.clientHeight)
-          let newval = (this.c_value - deg + 360) % 360
+          let newval = (((this.c_value - deg) % 360) + 360) % 360
           this.c_value = newval
         }
         if (mouseupEvent.type == "mouseup") {
