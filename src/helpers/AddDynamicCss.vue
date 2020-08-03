@@ -26,4 +26,10 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+:root {
+  font-weight: $weight-normal;
+  font-family: $font-default;
+  font-size: $size-paragraph;
+}
+</style>

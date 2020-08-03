@@ -44,13 +44,13 @@ export default {
     },
     /**
      * The size of the icon. Defaults to medium.
-     * `small, medium, large`
+     * `small, medium, large or inline to dynamically resize to 1em`
      */
     size: {
       type: String,
       default: "medium",
       validator: value => {
-        return value.match(/(small|medium|large)/)
+        return value.match(/(small|medium|large|inline)/)
       },
     },
   },
@@ -81,6 +81,12 @@ export default {
   &.small svg {
     width: $size_paragraph;
     height: $size_paragraph;
+  }
+  &.inline svg {
+    position: relative;
+    top: 0.15em;
+    width: 1em;
+    height: 1em;
   }
 }
 </style>

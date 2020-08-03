@@ -11,8 +11,15 @@ import designTokens from "@/assets/tokens/tokens.raw.json"
 export default {
   name: "ColorSwipe",
   status: "prototype",
-  release: "0.0.1",
+  release: "0.0.2",
   props: {
+    /**
+     * should the color wheel spin while dragging or only change on mouse release?
+     */
+    wheel: {
+      type: Boolean,
+      default: false,
+    },
     /**
      * gradient direction in deg, this one's useless right now
      */
@@ -39,12 +46,21 @@ export default {
     return {
       el: null,
       c_value: this.value,
+      c_oldval: this.value,
     }
   },
   computed: {
     primaryColor: function() {
       if (this.c_value) {
+        /**
+         *  new Color Value
+         *
+         * @event colorchange
+         */
         this.$emit("colorchange", this.c_value)
+        if (!this.wheel) {
+          return this.c_oldval
+        }
         return this.c_value
       } else {
         if (this.el) {
@@ -79,21 +95,30 @@ export default {
       // this will ahve a bug where if mouse up is outside the component, mousemove will fire the following times the mouse is over the component
       let mousedownEvent = this.mousedownEvent
       if (this.clicking) {
+        if (mouseupEvent.type == "mouseup") {
+          this._hasdragged = false
+          return
+        }
         // click before drag / up is registered
         if (mouseupEvent.movementX != 0 || mouseupEvent.movementY != 0 || this._hasdragged) {
           // mouse has moved
           this._hasdragged = true
-          let newval = this.c_value + mouseupEvent.movementY * (360 / this.$el.clientHeight)
-          newval = ((newval % 360) + 360) % 360
+          let newval
+          if (this.wheel) {
+            newval = this.c_value + mouseupEvent.movementY * (360 / this.$el.clientHeight)
+            newval = ((newval % 360) + 360) % 360
+          } else {
+            let deriv = mouseupEvent.offsetY - this.$el.clientHeight / 2
+            let deg = deriv * (360 / this.$el.clientHeight)
+            newval = (((this.c_oldval - deg) % 360) + 360) % 360
+          }
+
           this.c_value = newval
         } else {
           let deriv = mouseupEvent.offsetY - this.$el.clientHeight / 2
           let deg = deriv * (360 / this.$el.clientHeight)
           let newval = (((this.c_value - deg) % 360) + 360) % 360
           this.c_value = newval
-        }
-        if (mouseupEvent.type == "mouseup") {
-          this._hasdragged = false
         }
       }
     },
@@ -105,11 +130,13 @@ export default {
     this.$el.addEventListener("mousedown", e => {
       this.clicking = true
       this.mousedownEvent = e
+      this.mouseEval(e)
     })
     this.$el.addEventListener("mousemove", e => {
       this.mouseEval(e)
     })
     this.$el.addEventListener("mouseup", e => {
+      this.c_oldval = this.c_value
       this.mouseEval(e)
       this.clicking = false
     })
@@ -129,7 +156,39 @@ export default {
 <docs>
   ```jsx
   <div >
-  <ColorSwipe/> <ColorSwipe :value="150"/> <ColorSwipe :value="500"/> <ColorSwipe :value="-100"/>
+  <ColorSwipe :wheel='true'/> // optional flag for wheel-like rotation
+  <ColorSwipe :value="150"/> // different starting value
+  <ColorSwipe :value="500"/> // starting value above 360 deg possible. will be corrected to withing positive 360deg
+  <ColorSwipe :value="-100"/> // starting val below 0 deg possible, will be corrected to within positive 360 deg
   </div>
+  ```
+
+  ```vue
+  <template>
+    <div :style="{background: bgcol, width: '100%'}">
+      <ColorSwipe v-on:colorchange="colorSet"/>
+    </div>
+  </template>
+
+  <script>
+    export default{
+      data: function(){
+        return {
+          bgcolor: 0
+        }
+      },
+      computed: {
+        bgcol: function(){
+
+          return "hsla(" + this.bgcolor + ", 80%, 65%, 1)" // use returned color value in some way
+        }
+      },
+      methods: {
+        colorSet(val){ // react to emitted event, e.g. store locally or transform otherwise
+          this.bgcolor = val;
+        }
+      }
+    }
+  </script>
   ```
 </docs>
