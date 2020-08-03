@@ -12,6 +12,8 @@
 <script>
 export default {
   name: "ToggleSwitch",
+  status: "prototype",
+  release: "0.0.1",
   props: {
     /**
      * switch value, either true or false. bind with v-model

@@ -11,7 +11,7 @@ import designTokens from "@/assets/tokens/tokens.raw.json"
 export default {
   name: "ColorSwipe",
   status: "prototype",
-  release: "0.0.2",
+  release: "0.0.3",
   props: {
     /**
      * should the color wheel spin while dragging or only change on mouse release?

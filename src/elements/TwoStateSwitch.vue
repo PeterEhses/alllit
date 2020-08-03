@@ -15,6 +15,8 @@ export default {
     ToggleSwitch,
   },
   name: "TwoStateSwitch",
+  status: "prototype",
+  release: "0.0.1",
   props: {
     /**
      * left slot content
