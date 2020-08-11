@@ -1,0 +1,5 @@
+<svg id="Ebene_2" data-name="Ebene 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <path d="M35,9.5H13a3,3,0,0,0-3,3v22a3,3,0,0,0,3,3H35a3,3,0,0,0,3-3v-22A3,3,0,0,0,35,9.5Zm-1,23a1,1,0,0,1-1,1H14c-.55,0,0-.45,0-1v-18c0-.55-.55-1,0-1H33a1,1,0,0,1,1,1Z"/>
+  <rect x="17.84" y="20.45" width="2.83" height="10.61" transform="translate(-12.57 21.15) rotate(-45)"/>
+  <rect x="18.62" y="22.34" width="16.26" height="2.83" transform="translate(-8.96 25.87) rotate(-45)"/>
+</svg>
