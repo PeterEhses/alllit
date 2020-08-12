@@ -1,0 +1,7 @@
+/* general styles, useful when general rules can be applied throughout the app through class */
+// weird focus border fix
+*,
+*:focus,
+*:hover {
+  outline: none;
+}

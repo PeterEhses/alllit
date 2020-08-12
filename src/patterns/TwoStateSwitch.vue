@@ -1,10 +1,10 @@
 <template>
   <div class="twostatecontainer">
-    <label
-      ><p :class="enabled ? '' : 'bolden'">{{ left }}</p>
+    <label>
+      <p :class="enabled ? '' : 'bolden'" :title="left">{{ left }}</p>
       <ToggleSwitch v-model="enabled" />
-      <p :class="enabled ? 'bolden' : ''">{{ right }}</p></label
-    >
+      <p :class="enabled ? 'bolden' : ''" :title="right">{{ right }}</p>
+    </label>
   </div>
 </template>
 
@@ -58,6 +58,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+p {
+  @include prevent-user-select;
+  &:before {
+    display: block;
+    content: attr(title);
+    font-weight: $style-bold;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
+}
 label {
   font-size: $size-fineprint;
   display: flex;
