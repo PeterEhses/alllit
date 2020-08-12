@@ -18,9 +18,10 @@ export default {
   computed: {
     cssVars() {
       return {
-        "--bg-primary": designTokens.props.offwhite.value,
-        "--primary-hue": this.primary_color,
-        "--primary-color": "hsla(" + this.primary_color + ", 80%, 65%, 1)",
+        "--text-color": designTokens.props.offblack.value, //default text color. also in icons, etc.
+        "--bg-primary": designTokens.props.offwhite.value, // default background. it's behind most things
+        "--primary-hue": this.primary_color, // primary accent color hue. for smart math stuff
+        "--primary-color": "hsla( var(--primary-hue), 80%, 65%, 1)", // primary color as hacky thing
         "--secondary-color": "hsla(" + this.secondary_color + ", 66%, 79%, 1)",
       }
     },

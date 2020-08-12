@@ -12,7 +12,7 @@ const req = require.context("@/assets/icons/", true, /^\.\/.*\.svg$/)
 export default {
   name: "Icon",
   status: "prototype",
-  release: "0.0.2",
+  release: "0.0.3",
   props: {
     /**
      * The name of the icon to display.
