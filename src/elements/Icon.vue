@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" :aria-label="ariaLabel" :class="['icon', size]" v-html="svg" />
+  <component :is="type" :aria-label="ariaLabel" :class="['icon', size]" v-html="dynamicSvg" />
 </template>
 
 <script>
@@ -55,9 +55,12 @@ export default {
     },
   },
   data() {
-    return {
-      svg: req("./" + this.name + ".svg").replace(/^<svg /, `<svg style="fill: ${this.fill}" `),
-    }
+    return {}
+  },
+  computed: {
+    dynamicSvg: function() {
+      return req("./" + this.name + ".svg").replace(/^<svg /, `<svg style="fill: ${this.fill}" `)
+    },
   },
 }
 </script>
@@ -98,6 +101,21 @@ export default {
     <Icon name="review" fill="#F2E7A9" />
     <Icon name="deprecated" fill="rgb(255,0,0)" />
     <Icon name="prototype" fill="#090709" />
+    <hr/>
+    <Icon name="add" size="inline" fill="var(--primary-color)" />
+    <Icon name="checkbox_checked" size="inline" fill="#090709" />
+    <Icon name="close" size="inline" fill="#090709" />
+    <Icon name="drag" size="inline" fill="#090709" />
+    <Icon name="edit" size="inline" fill="#090709" />
+    <Icon name="folder" size="inline" fill="#090709" />
+    <Icon name="foldout" size="inline" fill="#090709" />
+    <Icon name="lock_locked" size="inline" fill="#090709" />
+    <Icon name="lock_open" size="inline" fill="#090709" />
+    <Icon name="meatballs" size="inline" fill="#090709" />
+    <Icon name="minimize" size="inline" fill="#090709" />
+    <Icon name="search" size="inline" fill="#090709" />
+    <Icon name="template" size="inline" fill="#090709" />
+    <Icon name="windowed" size="inline" fill="#090709" />
   </div>
   ```
 </docs>

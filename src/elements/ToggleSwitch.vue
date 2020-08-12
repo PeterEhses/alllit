@@ -2,18 +2,28 @@
   <label :class="[{ hasicon: hasicon, upright: upright, onoff: onoff }, 'switch']">
     <input type="checkbox" v-model="enabled" />
     <span class="slider">
-      <span class="handle"
-        ><p>{{ icon }}</p></span
-      >
+      <span class="handle">
+        <Icon
+          :name="icon"
+          size="inline"
+          fill="var(--bg-primary)"
+          :style="{ 'font-size': '.75em' }"
+          v-if="hasicon"
+        />
+      </span>
     </span>
   </label>
 </template>
 
 <script>
+import Icon from "@/elements/Icon.vue"
 export default {
   name: "ToggleSwitch",
   status: "prototype",
   release: "0.0.1",
+  components: {
+    Icon,
+  },
   props: {
     /**
      * switch value, either true or false. bind with v-model
@@ -53,9 +63,9 @@ export default {
     icon: function() {
       if (this.hasicon) {
         if (this.enabled) {
-          return "✔"
+          return "template"
         } else {
-          return "x"
+          return "close"
         }
       } else {
         return ""
@@ -159,6 +169,7 @@ export default {
   -webkit-transition: $duration-quickly;
   transition: $duration-quickly;
   & .handle {
+    @include prevent-user-select;
     display: flex;
     justify-content: center;
     align-content: center;
