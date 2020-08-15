@@ -12,14 +12,24 @@ export default {
   components: {},
   props: {
     /**
-     * dummy
+     * length in real world pixels
      */
+    length: {
+      type: Number,
+      default: 25,
+    },
     /**
-     * The fill color of the SVG icon.
+     * relative width, length in real world pixels
      */
-    dummy: {
-      type: String,
-      default: "dummy",
+    width: {
+      type: Number,
+      default: 100,
+    },
+    /**
+     * stretch height, if display aspect != real pixel aspect
+     */
+    stretchHeight: {
+      type: Number,
     },
   },
   data() {
@@ -37,7 +47,8 @@ export default {
       return this.$refs.canvas.getContext("2d")
     },
     containerHeight: function() {
-      return this.dimensions.width * 0.5
+      console.log("testo")
+      return this.dimensions.width * 0.5 + "px"
     },
   },
   watch: {
