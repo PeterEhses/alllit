@@ -45,6 +45,7 @@ export default {
     /**
      * The size of the icon. Defaults to medium.
      * `small, medium, large or inline to dynamically resize to 1em`
+     * @values small, medium, large, inline
      */
     size: {
       type: String,

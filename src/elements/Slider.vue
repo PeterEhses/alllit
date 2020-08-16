@@ -76,7 +76,7 @@ export default {
           lerpVal = this.internal_value / this.max
         }
 
-        let from = designTokens.props.offblack.value
+        let from = "var(--text-color)"
         let to = "var(--primary-color)"
         let fromperc = 0
         if (lerpVal != 0) {
