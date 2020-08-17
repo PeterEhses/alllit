@@ -1,7 +1,9 @@
 <template>
   <section :class="type">
-    <slot>content</slot>
-    <p>hi!</p>
+    <slot
+      >content
+      <p>hi!</p></slot
+    >
   </section>
 </template>
 

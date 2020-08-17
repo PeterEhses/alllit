@@ -35,4 +35,17 @@ export default {
   font-family: $font-default;
   font-size: $size-paragraph;
 }
+input {
+  font-weight: $weight-normal;
+  font-family: $font-default;
+  font-size: $size-paragraph;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 </style>

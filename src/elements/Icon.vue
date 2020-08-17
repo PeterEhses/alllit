@@ -73,6 +73,7 @@ export default {
 // We don’t want to use scoped since these styles need to cascade down to SVGs.
 // We also want to be able to style .icon inside buttons etc.
 .icon {
+  transition: all $duration-quickly;
   @include reset;
   &.large svg {
     width: $size_3;
@@ -97,26 +98,46 @@ export default {
 
 <docs>
   ```jsx
-  <div>
+  <div style="font-size: 1.5em;">
     <Icon name="ready" aria-label="Component is ready" fill="#ED5C79" />
     <Icon name="review" fill="#F2E7A9" />
     <Icon name="deprecated" fill="rgb(255,0,0)" />
     <Icon name="prototype" fill="#090709" />
     <hr/>
     <Icon name="add" size="inline" fill="var(--primary-color)" />
+    <Icon name="subtract" size="inline" fill="#090709" />
+    <hr/>
+    <Icon name="checkbox" size="inline" fill="#090709" />
     <Icon name="checkbox_checked" size="inline" fill="#090709" />
-    <Icon name="close" size="inline" fill="#090709" />
-    <Icon name="drag" size="inline" fill="#090709" />
-    <Icon name="edit" size="inline" fill="#090709" />
-    <Icon name="folder" size="inline" fill="#090709" />
-    <Icon name="foldout" size="inline" fill="#090709" />
+    <Icon name="checkmark" size="inline" fill="#090709" />
+    <br/>
     <Icon name="lock_locked" size="inline" fill="#090709" />
     <Icon name="lock_open" size="inline" fill="#090709" />
-    <Icon name="meatballs" size="inline" fill="#090709" />
-    <Icon name="minimize" size="inline" fill="#090709" />
+    <br/>
+    <Icon name="edit" size="inline" fill="#090709" />
+    <Icon name="folder" size="inline" fill="#090709" />
+
     <Icon name="search" size="inline" fill="#090709" />
     <Icon name="template" size="inline" fill="#090709" />
+    <hr/>
+    <Icon name="close" size="inline" fill="#090709" />
+    <Icon name="fullwindow" size="inline" fill="#090709" />
+    <Icon name="minimize" size="inline" fill="#090709" />
     <Icon name="windowed" size="inline" fill="#090709" />
+    <br/>
+    <Icon name="drag" size="inline" fill="#090709" />
+    <Icon name="foldout" size="inline" fill="#090709" />
+    <Icon name="meatballs" size="inline" fill="#090709" />
+
+
+
+
+
+
+
+
+
+
   </div>
   ```
 </docs>

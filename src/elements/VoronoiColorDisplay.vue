@@ -367,7 +367,7 @@ export default {
     this.observer = new ResizeObserver(this.callbackObserver)
     this.observer.observe(targetNode, config)
   },
-  destroyed() {
+  beforeDestroy() {
     this.observer.disconnect()
   },
 }
@@ -376,6 +376,7 @@ export default {
 <style lang="scss" scoped>
 .canvas,
 .container {
+  transition: none !important;
   @include reset;
 }
 </style>

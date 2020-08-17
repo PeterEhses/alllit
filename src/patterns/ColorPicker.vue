@@ -24,6 +24,15 @@
       :selectedNub="selectedColorNub"
       @selected="e => (selectedColorNub = e)"
     />
+    <div class="colorselect">
+      <div class="valuesSelect">
+        <ColorValues :color="activeColor" conversionType="CYMK" />
+        <ColorValues :color="activeColor" conversionType="RGB" />
+        <ColorValues :color="activeColor" conversionType="HSV" />
+      </div>
+      <div class="svselect"><SVColorPicker :color="activeColor" @dragged="e => setColor" /></div>
+      <div class="hselect"><HueColorSlider :color="activeColor" @dragged="e => setColor" /></div>
+    </div>
   </div>
 </template>
 
@@ -31,6 +40,9 @@
 import Icon from "@/elements/Icon.vue"
 import TwoStateSwitch from "@/patterns/TwoStateSwitch.vue"
 import VoronoiColorXYSlider from "@/patterns/VoronoiColorXYSlider.vue"
+import SVColorPicker from "@/patterns/SVColorPicker.vue"
+import HueColorSlider from "@/patterns/HueColorSlider.vue"
+import ColorValues from "@/elements/ColorValues.vue"
 export default {
   name: "ColorPicker",
   status: "prototype",
@@ -39,35 +51,54 @@ export default {
     Icon,
     TwoStateSwitch,
     VoronoiColorXYSlider,
+    SVColorPicker,
+    HueColorSlider,
+    ColorValues,
   },
   props: {
     /**
-     * dummy
+     * colors object
      */
-    dummy: {
-      type: String,
-      default: "dummy",
+    colors: {
+      type: Array,
+      default: [],
+    },
+    /**
+     * dimensionality
+     */
+    twoDim: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * colors object
+     */
+    gradientLerp: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
     return {
       selectedColorNub: 0,
-      oneDimensional: false,
-      lerpModeBool: false,
-      colorNubs: [
-        // {
-        //   x: 50,
-        //   y: 50,
-        //   color: {
-        //     h: 0,
-        //     s: 100,
-        //     v: 100
-        //   }
-        // }
-      ],
+      oneDimensional: this.twoDim,
+      lerpModeBool: this.gradientLerp,
+      colorNubs: this.colors,
+      newColor: {
+        h: 0,
+        s: 60.215,
+        v: 93,
+      },
     }
   },
   computed: {
+    activeColor() {
+      if (this.selectedColorNub < this.colorNubs.length && this.selectedColorNub >= 0) {
+        return this.colorNubs[this.selectedColorNub].color
+      } else {
+        return this.newColor
+      }
+    },
     lerpMode() {
       if (this.lerpModeBool) {
         return "RGB"
@@ -76,7 +107,55 @@ export default {
       }
     },
   },
+  watch: {
+    color: {
+      handler() {
+        this.colorNubs = this.color
+      },
+      deep: true,
+    },
+    colorNubs: {
+      handler() {
+        /**
+         * color points change
+         * @event colors-change
+         * @property {array} colorpoints
+         */
+        this.$emit("colors-change", this.colorNubs)
+      },
+      deep: true,
+    },
+    twoDim() {
+      this.oneDimensional = this.twoDim
+    },
+    gradientLerp() {
+      this.lerpModeBool = this.gradientLerp
+    },
+    oneDimensional() {
+      /**
+       * dimension mode  change
+       * @event dimension-change
+       * @property {boolean} dimensionality
+       */
+      this.$emit("dimension-change", this.oneDimensional)
+    },
+    lerpModeBool() {
+      /**
+       * lerp mode  change
+       * @event lerp-change
+       * @property {boolean} lerpity
+       */
+      this.$emit("lerp-change", this.lerpModeBool)
+    },
+  },
   methods: {
+    setColor(c) {
+      if (this.selectedColorNub < this.colorNubs.length && this.selectedColorNub >= 0) {
+        this.colorNubs[this.selectedColorNub].color = c
+      } else {
+        this.newColor = c
+      }
+    },
     accentHue() {
       return getComputedStyle(this.$el).getPropertyValue("--primary-hue")
     },
@@ -115,15 +194,18 @@ export default {
         x: x,
         y: y,
         color: {
-          h: Math.random() * 360, //this.accentHue(),
-          s: 60.215,
-          v: 93,
+          h: this.newColor.h, //this.accentHue(),
+          s: this.newColor.s,
+          v: this.newColor.v,
         },
       })
     },
   },
   mounted() {
-    this.addColor(50, 50)
+    this.newColor.h = this.accentHue()
+    if (this.colorNubs.length < 1) {
+      this.addColor(50, 50)
+    }
   },
 }
 </script>
@@ -136,6 +218,23 @@ export default {
   align-items: center;
   font-size: $size-fineprint;
   width: 100%;
+}
+.colorselect {
+  margin-top: $space-l * 2;
+  display: flex;
+  align-items: stretch;
+}
+.svselect {
+  flex-grow: 1;
+  width: 66%;
+}
+.hselect {
+  margin-left: $space-l * 2;
+  height: auto;
+}
+.valuesSelect {
+  margin-right: $space-l * 2;
+  flex-grow: 0;
 }
 </style>
 

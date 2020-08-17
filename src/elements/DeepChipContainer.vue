@@ -1,7 +1,7 @@
 <template>
-  <div id="outer" :style="{ background: color }">
-    <div id="inner"></div>
-    <div id="content"><slot></slot></div>
+  <div class="outer" :style="{ background: color }">
+    <div class="inner"></div>
+    <div class="content"><slot></slot></div>
   </div>
 </template>
 
@@ -38,16 +38,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#outer {
+.outer {
+  flex-grow: 1;
   position: relative;
-  margin: $space-s;
+  margin: 0;
   //padding: $space-s $space-l $space-s $space-s;
+  width: auto;
   height: auto;
   background-color: $primary;
   background: linear-gradient(90deg, $gray2 66%, var(--primary-color) 100%);
   border-radius: $chip-height/2 0 0 $chip-height/2;
 }
-#inner {
+.inner {
   position: absolute;
   box-sizing: border-box;
   background-color: $offwhite;
@@ -57,8 +59,9 @@ export default {
   left: $space-s;
   bottom: $space-s;
   right: $space-l;
+  width: auto;
 }
-#content {
+.content {
   width: 100%;
   min-height: $chip-height;
   z-index: 2;
