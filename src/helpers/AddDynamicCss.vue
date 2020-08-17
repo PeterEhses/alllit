@@ -48,4 +48,33 @@ input {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: $space-m * 3;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $gray2;
+  margin: 2px;
+  border: $space-m solid $offwhite;
+  border-radius: $radius-force-circle;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $gray4;
+}
+
+::-webkit-resizer,
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-corner {
+  display: none;
+}
 </style>

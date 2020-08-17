@@ -4,7 +4,7 @@
       <span>
         <Icon name="add" fill="var(--text-color)" size="inline" v-on:click.native="addColor" />
         <Icon
-          name="minimize"
+          name="subtract"
           fill="var(--text-color)"
           size="inline"
           v-on:click.native="removeColor"
@@ -61,7 +61,7 @@ export default {
      */
     colors: {
       type: Array,
-      default: [],
+      default: () => [],
     },
     /**
      * dimensionality

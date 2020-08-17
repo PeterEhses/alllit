@@ -106,19 +106,23 @@ export default {
     <hr/>
     <Icon name="add" size="inline" fill="var(--primary-color)" />
     <Icon name="subtract" size="inline" fill="#090709" />
+
     <hr/>
     <Icon name="checkbox" size="inline" fill="#090709" />
     <Icon name="checkbox_checked" size="inline" fill="#090709" />
     <Icon name="checkmark" size="inline" fill="#090709" />
+    <Icon name="ok" size="inline" fill="#090709" />
     <br/>
     <Icon name="lock_locked" size="inline" fill="#090709" />
     <Icon name="lock_open" size="inline" fill="#090709" />
     <br/>
     <Icon name="edit" size="inline" fill="#090709" />
     <Icon name="folder" size="inline" fill="#090709" />
-
+    <Icon name="locate" size="inline" fill="#090709" />
     <Icon name="search" size="inline" fill="#090709" />
     <Icon name="template" size="inline" fill="#090709" />
+    <Icon name="warning" size="inline" fill="#090709" />
+    <Icon name="view" size="inline" fill="#090709" />
     <hr/>
     <Icon name="close" size="inline" fill="#090709" />
     <Icon name="fullwindow" size="inline" fill="#090709" />

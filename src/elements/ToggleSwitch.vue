@@ -63,7 +63,7 @@ export default {
     icon: function() {
       if (this.hasicon) {
         if (this.enabled) {
-          return "template"
+          return "ok"
         } else {
           return "close"
         }

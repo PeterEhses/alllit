@@ -1,13 +1,11 @@
 {
-  "name": "vue-design-system",
-  "version": "3.5.7",
-  "description": "Vue Design System is an open-source tool for building Design Systems with Vue.js",
-  "author": "viljamis <me@viljamis.com>",
+  "name": "allit-design-system",
+  "version": "0.0.3",
+  "description": "the allit design system is based on Vue Design System, an open-source tool for building Design Systems with Vue.js",
   "main": "dist/system/system.js",
   "files": [
     "dist/system"
   ],
-  "homepage": "https://vueds.com",
   "private": true,
   "license": "MIT",
   "scripts": {

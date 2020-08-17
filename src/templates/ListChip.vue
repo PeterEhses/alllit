@@ -1,14 +1,14 @@
 <template>
   <div class="listchip">
     <div class="listchippre">
-      <div class="preiconcircle"></div>
-      <div class="preiconcircle"></div>
+      <div class="preiconcircle"><Icon name="view" size="inline" /></div>
+      <div class="preiconcircle"><Icon name="warning" size="inline" /></div>
     </div>
     <DeepChipContainer :accentcolor="computedAccentColor">
       <div class="chipcontent">
         <div class="topbar">
           <div class="info">
-            <strong>{{ id }}</strong>
+            <strong>{{ leadingId }}</strong>
             <p>{{ name }}</p>
           </div>
 
@@ -81,6 +81,14 @@ export default {
     }
   },
   computed: {
+    leadingId() {
+      let tobelead = "" + this.id
+      while (tobelead.length < 4) {
+        tobelead = "0" + tobelead
+      }
+
+      return tobelead
+    },
     computedAccentColor() {
       if (isNaN(this.accentHue)) {
         return undefined
@@ -105,6 +113,10 @@ export default {
   height: $chip-height;
 }
 .preiconcircle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: $size-paragraph * 0.75;
   width: $size-paragraph - $space-s;
   height: $size-paragraph - $space-s;
   border-radius: $radius-force-circle;
@@ -121,6 +133,7 @@ export default {
   justify-content: space-between;
 }
 .info {
+  @include prevent-user-select;
   display: flex;
   margin-left: 1em;
   & p {
