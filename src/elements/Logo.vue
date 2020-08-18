@@ -1,5 +1,5 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 167.99 66" style="color: var(--text-color)">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 167.99 66" style="fill: var(--text-color)">
     <defs>
       <filter id="f1" x="-100%" y="-100%" width="300%" height="300%">
         <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
@@ -21,17 +21,24 @@
       transform="translate(-875.27 -601.5)"
     />
     <rect
-      fill="var(--secondary-color)"
+      fill="var(--primary-color)"
       filter="url(#f1)"
       x="102.99"
       width="11"
       height="66"
       rx="5.5"
     />
-    <rect fill="var(--primary-color)" filter="url(#f1)" x="59.99" width="11" height="66" rx="5.5" />
+    <rect
+      fill="var(--secondary-color)"
+      filter="url(#f1)"
+      x="59.99"
+      width="11"
+      height="66"
+      rx="5.5"
+    />
     <rect fill="var(--primary-color)" filter="url(#f1)" x="80.99" width="11" height="66" rx="5.5" />
     <rect
-      fill="var(--secondary-color"
+      fill="var(--secondary-color)"
       fill-opacity="0.5"
       filter="url(#f1)"
       x="80.99"
@@ -39,11 +46,11 @@
       height="66"
       rx="5.5"
     />
-    <rect fill="var(--secondary-color" x="102.99" width="11" height="66" rx="5.5" />
-    <rect fill="var(--primary-color)" x="59.99" width="11" height="66" rx="5.5" />
+    <rect fill="var(--primary-color)" x="102.99" width="11" height="66" rx="5.5" />
+    <rect fill="var(--secondary-color)" x="59.99" width="11" height="66" rx="5.5" />
     <rect fill="var(--primary-color)" x="80.99" width="11" height="66" rx="5.5" />
     <rect
-      fill="var(--secondary-color"
+      fill="var(--secondary-color)"
       fill-opacity="0.5"
       x="80.99"
       width="11"
