@@ -8,8 +8,14 @@ export default {
   name: "AddDynamicCss",
   data() {
     return {
-      primary_color: 348,
-      secondary_color: 60,
+      theme: {
+        primary_color: 348,
+        secondary_color: 60,
+        text_color: designTokens.props.offblack.value,
+        bg_primary: designTokens.props.offwhite.value,
+        bg_2: designTokens.props.gray2.value,
+        bg_4: designTokens.props.gray4.value,
+      },
     }
   },
   render(h) {
@@ -18,11 +24,13 @@ export default {
   computed: {
     cssVars() {
       return {
-        "--text-color": designTokens.props.offblack.value, //default text color. also in icons, etc.
-        "--bg-primary": designTokens.props.offwhite.value, // default background. it's behind most things
-        "--primary-hue": this.primary_color, // primary accent color hue. for smart math stuff
+        "--text-color": this.theme.text_color, //default text color. also in icons, etc.
+        "--bg-primary": this.theme.bg_primary, // default background. it's behind most things
+        "--bg-2": this.theme.bg_2, // gray 2 for light mode.
+        "--bg-4": this.theme.bg_4, // gray 4 for light mode.
+        "--primary-hue": this.theme.primary_color, // primary accent color hue. for smart math stuff
         "--primary-color": "hsla( var(--primary-hue), 80%, 65%, 1)", // primary color as hacky thing
-        "--secondary-color": "hsla(" + this.secondary_color + ", 66%, 79%, 1)",
+        "--secondary-color": "hsla(" + this.theme.secondary_color + ", 66%, 79%, 1)",
       }
     },
   },
@@ -61,15 +69,15 @@ input[type="number"] {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: $gray2;
+  background: var(--bg-2);
   margin: 2px;
-  border: $space-m solid $offwhite;
+  border: $space-m solid var(--bg-primary);
   border-radius: $radius-force-circle;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: $gray4;
+  background: var(--bg-4);
 }
 
 ::-webkit-resizer,
