@@ -382,6 +382,7 @@ export default {
 </style>
 
 <docs>
+  ### basic component for 2d color gradient display. gradients are modeled through either nearest neighbor relation (resulting in a voronoi diagram) or smoothly interpolates through convex distance.
   ```jsx
   <div style="width: 200px">
     <VoronoiColorDisplay lerpMode="HSV" :colorSteps="[

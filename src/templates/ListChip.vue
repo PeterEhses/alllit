@@ -185,6 +185,7 @@ export default {
 </style>
 
 <docs>
+  ### Shows a registered device. The color of the device and other settings can be changed here manually through the ColorPicker. The ColorSwipe is used here to change the color of the DeepChipContainer. 
   ```jsx
   <div class="doc" style="width: 320px">
       <ListChip :id="999" :name="'allit'"/>

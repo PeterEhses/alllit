@@ -154,6 +154,7 @@ export default {
 </style>
 
 <docs>
+  ### Appears on ListChips to pick out a marking color
   ```jsx
   <div >
   <ColorSwipe :wheel='true'/> // optional flag for wheel-like rotation

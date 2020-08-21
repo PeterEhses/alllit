@@ -49,14 +49,14 @@ export default {
 <docs>
 
 ### Container Type:
-
+Container type card is used for the panels.
   ```jsx
   <div>
     <Container type="card"/>
   </div>
   ```
   ### Outline Type:
-
+  Container type outline is used for a section that are contained inside a panel.
   ```jsx
   <div>
     <Container type="outline"/>

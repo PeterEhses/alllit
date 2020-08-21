@@ -10,9 +10,6 @@
 </template>
 
 <script>
-/**
- * container for all sorts of chips. todo: un-responsive corner radii, open / close functionality, etc. etc.
- */
 export default {
   name: "Tag",
   status: "prototype",
@@ -79,6 +76,7 @@ p {
 </style>
 
 <docs>
+  ### A Tag displays the name of a panel and is used as a drag handle, to drag and drop it inside the view.
   ```jsx
   <div >
     <Tag>Device List</Tag>

@@ -188,6 +188,7 @@ export default {
 </style>
 
 <docs>
+  ### Switches between two options or on or off. Configurable as shown.
   ```vue
   <template>
     <div class="">

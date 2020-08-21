@@ -142,6 +142,7 @@ export default {
 </style>
 
 <docs>
+  ### Shows and selects a color in a color picker
   ```jsx
   <div class="">
     <div style="position: relative; height: 2rem">

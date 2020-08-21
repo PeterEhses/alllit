@@ -153,7 +153,11 @@ export default {
 </style>
 
 <docs>
+  ### adjusts arbitrary numeric values. comes in a gradient and non-gradient version for visual feedback.
   ```jsx
   <Slider/>
+  ```
+  ```jsx
+  <Slider :gradient="false"/>
   ```
 </docs>

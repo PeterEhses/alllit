@@ -202,6 +202,7 @@ export default {
 </style>
 
 <docs>
+  ### voronoi color display enhanced with interactive controls.
   ```vue
   <template lang="html">
     <div style="width: 200px">

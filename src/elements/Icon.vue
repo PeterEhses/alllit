@@ -97,6 +97,7 @@ export default {
 </style>
 
 <docs>
+  ### are used as or in buttons for different actions. They also give visual feedback on interactions.
   ```jsx
   <div style="font-size: 1.5em;">
     <Icon name="ready" aria-label="Component is ready" fill="#ED5C79" />

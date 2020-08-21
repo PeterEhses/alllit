@@ -239,6 +239,7 @@ export default {
 </style>
 
 <docs>
+  ### A color picker with HSV visual input as well as different color models as value input. Supports 2d gradients.
   ```jsx
   <div style="width: 250px">
     <ColorPicker/>

@@ -108,6 +108,7 @@ export default {
 </style>
 
 <docs>
+  ### The HueColorPicker is used in the ColorPicker and is located on the right side
   ```jsx
   <div style="height: 200px;">
     <HueColorPicker/>

@@ -95,6 +95,7 @@ export default {
 </style>
 
 <docs>
+  ## saturation and value 2d color picker. part of the color picker component.
   ```jsx
   <div style="width: 250px; height: 250px;">
     <SVColorPicker/>

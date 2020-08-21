@@ -79,6 +79,7 @@ svg {
   ```jsx
   <div style="width: 200px">
     <Logo/>
+    <Logo :style="{'--primary-color':'rgb(255, 0, 255)', '--secondary-color': 'rgb(0, 255, 255)'}"/>
   </div>
   ```
 </docs>

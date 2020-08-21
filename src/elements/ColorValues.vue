@@ -186,8 +186,9 @@ input[type="text"] {
 </style>
 
 <docs>
-  ## this component is a stub. No reaction to user input is implemented.
 
+### Shows the Color value in three different color models and in HEX form.
+  #### this component is a stub. No reaction to user input is implemented.
   ```jsx
   <div class="">
     <ColorValues/>

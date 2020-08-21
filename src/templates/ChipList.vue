@@ -79,6 +79,7 @@ export default {
 </style>
 
 <docs>
+  ### Is used to show registered devices in the device list panel in the form of ListChips.
   ```jsx
   <div style="width: 400px; height: 450px;">
     <ChipList :chips="[

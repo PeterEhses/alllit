@@ -73,6 +73,8 @@ export default {
 </style>
 
 <docs>
+### is used for containing registered devices inside the device list or the pixel map.
+
 ### deep chip works with single lines
   ```js
   <div>
