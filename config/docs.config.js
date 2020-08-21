@@ -66,8 +66,8 @@ module.exports = {
       usageMode: "hide",
     },
     {
-      name: "Voice & Tone",
-      content: "../docs/voice-and-tone.md",
+      name: "To Be Implemented",
+      content: "../docs/to-be-implemented.md",
       sectionDepth: 1,
       exampleMode: "hide",
       usageMode: "hide",
